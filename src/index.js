@@ -27,17 +27,18 @@ function onInput(evt) {
       .catch(err => console.log(err));
   } else {
     countryList.innerHTML = '';
+    countryInfo.innerHTML = '';
   }
 }
 
 function createMarkup(data) {
-      const {
-        flags: { svg },
-        name: { official },
-        capital,
-        population,
-        languages,
-      } = data[0];
+  const {
+    flags: { svg },
+    name: { official },
+    capital,
+    population,
+    languages,
+  } = data[0];
 
   if (!data.length) {
     countryList.innerHTML = '';
@@ -49,15 +50,6 @@ function createMarkup(data) {
       'Too many matches found. Please enter a more specific name.'
     );
   } else if (data.length === 1) {
- 
-    // const {
-    //   flags: { svg },
-    //   name: { official },
-    //   capital,
-    //   population,
-    //   languages,
-    // } = data[0];
-
     countryList.innerHTML = '';
     countryInfo.innerHTML = `<div class='title'><img src="${svg}" alt="${official}" width=80 height=50><h1>${official}</h1></div>
     <span>Capital: </span>${capital}<br>

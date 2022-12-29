@@ -12,8 +12,9 @@ const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 
 function onInput(evt) {
-  if (evt.target.value) {
-    fetchCountries(evt.target.value.trim())
+  const countryToFind = evt.target.value.trim();
+  if (countryToFind) {
+    fetchCountries(countryToFind)
       .then(resp => {
         if (!resp.ok) {
           countryList.innerHTML = '';
